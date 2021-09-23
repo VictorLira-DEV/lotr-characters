@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.App {
+    text-align: center;
+    max-width: 1440px;
+    height: auto;
+    margin: 0 auto;
+    background: rgb(199, 176, 113);
+}
+
+.character-list{
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.paginationBttns {
+  /* width: 80%; */
+  background: rgb(199, 176, 113);
+  padding: 20px;
+  /* height: 40px; */
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.paginationBttns a {
+  padding: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  border: 1px solid #2b2eff;
+  color: #2b2eff;
+  cursor: pointer;
+}
+
+.paginationBttns a:hover {
+  color: white;
+  background: #2b2eff;
+} 
+
+.paginationActive a {
+  color: white;
+  background: #2b2eff;
+}

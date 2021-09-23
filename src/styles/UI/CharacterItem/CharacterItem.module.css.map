@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,kBAAkB,CAAA;EACd,UAAU,EAAE,IAAI;CAQnB;;AATD,AAGI,kBAHc,CAGd,eAAe,CAAA;EACX,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;EACb,MAAM,EAAE,eAAe;EACvB,aAAa,EAAE,IAAI;CACtB",
+    "sources": [
+        "CharacterItem.module.scss"
+    ],
+    "names": [],
+    "file": "CharacterItem.module.css"
+}

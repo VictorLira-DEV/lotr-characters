@@ -1,0 +1,11 @@
+.character-wrapper {
+  list-style: none;
+}
+
+.character-wrapper .character-item {
+  width: 300px;
+  height: 400px;
+  border: 3px solid black;
+  margin-bottom: 20px;
+}
+/*# sourceMappingURL=CharacterItem.module.css.map */
