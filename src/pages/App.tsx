@@ -8,12 +8,19 @@ function App() {
     interface CharacterInfo {
         id: string;
         name: string;
+        index: number;
+        race: string;
+        gender: string;
+        wikiUrl: string;
+        birth: string;
+        death: string;
     }
 
     interface ChangePage {
-      selected: number;
-  }
+        selected: number;
+    }
 
+    const [raceSelected, setRaceSelected] = useState<string>('')
     const [characters, setCharacters] = useState<CharacterInfo[]>([]);
     const [pageNumber, setPageNumber] = useState<number>(0);
     const usersPerPage = 12;
@@ -21,15 +28,19 @@ function App() {
 
     const displayCharacters = characters
         .slice(pagesVisited, pagesVisited + usersPerPage)
-        .map((characters1) => {
-            {
+        .map((characters1, index) => {
                 return (
                     <CharacterItem
                         key={characters1.id}
                         name={characters1.name}
+                        index={index + 1 + pagesVisited}
+                        race={characters1.race}
+                        gender={characters1.gender}
+                        link={characters1.wikiUrl}
+                        birth={characters1.birth}
+                        death={characters1.death}
                     />
                 );
-            }
         });
 
     const pageCount = Math.ceil(characters.length / usersPerPage);
@@ -53,22 +64,87 @@ function App() {
             );
             const quotes = await characters.json();
             const data = quotes.docs;
-            setCharacters(data);
+            const newData:CharacterInfo[]  = []
+            data.forEach((character: CharacterInfo) => {
+                if(character.race !== 'NaN' && character.race.length > 2){
+                    newData.push(character)
+                }   
+            })
+
+            setCharacters(newData)
         };
 
         fetchData();
     }, []);
 
+    const receiveRace = (race: string) => {
+        setRaceSelected(race);
+    }
+
+    useEffect(() => {
+        const headers = {
+            Accept: "application/json",
+            Authorization: "Bearer xvi06TocPJvBmrQC4yZv",
+        };
+
+        if(raceSelected === 'All'){
+            const fetchData = async () => {
+                const characters = await fetch(
+                    `https://the-one-api.dev/v2/character`,
+                    {
+                        headers,
+                    }
+                );
+                const quotes = await characters.json();
+                const data = quotes.docs;
+                const newData:CharacterInfo[]  = []
+                data.forEach((character: CharacterInfo) => {
+                    if(character.race !== 'NaN' && character.race.length > 2){
+                        newData.push(character)
+                    }   
+                })
+    
+                setCharacters(newData)
+            };
+    
+            fetchData();
+            return
+        }
+
+        const fetchData = async () => {
+            const characters = await fetch(
+                `https://the-one-api.dev/v2/character?race=${raceSelected}`,
+                {
+                    headers,
+                }
+            );
+            const quotes = await characters.json();
+            const data = quotes.docs;
+            const newData:CharacterInfo[]  = []
+            data.forEach((character: CharacterInfo) => {
+                if(character.race !== 'NaN' && character.race.length > 2){
+                    newData.push(character)
+                }   
+            })
+
+            setCharacters(newData)
+        };
+
+        fetchData();
+    }, [raceSelected])
+
     return (
         <div className="App">
-            <Header />
-            <ul className="character-list">{displayCharacters}</ul>
+            <Header onReceiveRace={receiveRace} />
+            <ul className="character-list">
+                {displayCharacters}
+            </ul>
             <ReactPaginate
-                previousLabel={"Previous"}
+                previousLabel={"Prev"}
                 nextLabel={"Next"}
                 pageCount={pageCount}
                 onPageChange={changePage}
-                pageRangeDisplayed={10}
+                pageRangeDisplayed={1}
                 marginPagesDisplayed={1}
                 containerClassName={"paginationBttns"}
                 previousLinkClassName={"previousBttn"}

@@ -1,11 +1,147 @@
 .character-wrapper {
   list-style: none;
+  margin: 0 auto;
 }
 
 .character-wrapper .character-item {
   width: 300px;
-  height: 400px;
-  border: 3px solid black;
-  margin-bottom: 20px;
+  min-height: 428px;
+  border: 1px solid #baa86a;
+  border-radius: 6px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 5px;
+  background: #0a0a0a;
+  color: #f1e7cc;
+  margin: 0px 20px 20px 20px;
+}
+
+.character-wrapper .character-item .header {
+  padding: 0 10px;
+  border: 1px solid #baa86a;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 19px;
+  min-height: 60px;
+}
+
+.character-wrapper .character-item .header .index {
+  min-width: 50px;
+  height: 50px;
+  position: relative;
+}
+
+.character-wrapper .character-item .header .index .img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.character-wrapper .character-item .header .index .img img {
+  width: 100%;
+  height: 100%;
+  border: 2px solid #bbae7f;
+  border-radius: 100%;
+}
+
+.character-wrapper .character-item .header .index .index-number {
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+  font-size: 20px;
+}
+
+.character-wrapper .character-item .header img {
+  width: 50px;
+}
+
+.character-wrapper .character-item .picture {
+  width: 100%;
+  margin-top: 5px;
+  height: 200px;
+  border: 1px solid #baa86a;
+}
+
+.character-wrapper .character-item .picture img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+}
+
+.character-wrapper .character-item .race {
+  margin-top: 5px;
+  border: 1px solid #baa86a;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.character-wrapper .character-item .race img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.character-wrapper .character-item .info {
+  font-size: 14px;
+  width: 100%;
+  margin-top: 5px;
+  min-height: 110px;
+  border: 1px solid #baa86a;
+  text-align: start;
+  position: relative;
+  padding-left: 10px;
+}
+
+.character-wrapper .character-item .info .death {
+  padding-bottom: 17px;
+}
+
+.character-wrapper .character-item .info .link {
+  margin-top: 10px;
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  -webkit-transform: translate(50%);
+          transform: translate(50%);
+  width: 100%;
+  text-align: center;
+}
+
+.character-wrapper .character-item .info .link a {
+  text-decoration: none;
+  color: white;
+}
+
+.character-wrapper .character-item .info .link a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 656px) {
+  .character-wrapper .character-item {
+    margin: 0 0 20px 0;
+  }
 }
 /*# sourceMappingURL=CharacterItem.module.css.map */

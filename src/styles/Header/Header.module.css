@@ -1,7 +1,104 @@
 .header {
-  padding: 10px 20px;
+  padding: 10px 30px;
+  width: 100%;
   color: white;
   background-color: #1b1b1b;
   text-align: start;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid #4e4a3b;
+}
+
+.header .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header .logo img {
+  width: 70px;
+}
+
+.header .logo h1 {
+  color: #f1e7cc;
+}
+
+.header input {
+  border: 1px solid #baa86a;
+  background: black;
+  color: #f1e7cc;
+  font-size: 1rem;
+  width: 170px;
+  height: 40px;
+  font-size: 15px;
+  padding: 5px;
+}
+
+.header .select-race {
+  margin-right: 10px;
+  max-width: 200px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 1px solid #baa86a !important;
+  background: rgba(2, 2, 2, 0.9);
+  color: #f1e7cc;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 0 0.5em;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 5px;
+  height: 40px;
+}
+
+@media screen and (max-width: 745px) {
+  .header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 10px 10px;
+  }
+  .header .logo {
+    margin-bottom: 10px;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 656px) {
+  .header {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media screen and (max-width: 362px) {
+  .header {
+    padding: 10px 20px;
+  }
+  .header input {
+    max-width: 150px;
+  }
+  .header .select-race {
+    max-width: 140px;
+  }
 }
 /*# sourceMappingURL=Header.module.css.map */
