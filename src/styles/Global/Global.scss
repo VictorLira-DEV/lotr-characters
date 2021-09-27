@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+@import './variables';
 
 * {
     padding: 0;
@@ -12,7 +13,7 @@
     max-width: 1440px;
     height: auto;
     margin: 0 auto;
-    background: #2a121f;
+    background: $color-purple;
     min-height: 100vh;
     position: relative;
     overflow: hidden;
@@ -34,29 +35,29 @@
   bottom: 0;
   right: 50%;
   transform: translate(50%);
+  a {
+    padding: 10px;
+    margin: 8px;
+    border-radius: 5px;
+    border: 1px solid $color-dark-golden;
+    color: $color-light-golder;
+    cursor: pointer;
+    background: $color-black; 
+    font-size: 14px;
+
+    &:hover{
+      color: $color-black;
+      background: $color-dark-golden;
+    }
+  }
   
 }
 
-.paginationBttns a {
-  padding: 10px;
-  margin: 8px;
-  border-radius: 5px;
-  border: 1px solid #baa86a;
-  color: #f1e7cc;
-  cursor: pointer;
-  background: #0a0a0a; 
-  font-size: 14px;
-}
-
-.paginationBttns a:hover {
-  color: black;
-  background: #baa86a;
-} 
 
 .paginationActive a {
   font-weight: bolder;
-  color: #2a121f;
-  background: #baa86a;
+  color: $color-black;
+  background: $color-dark-golden;
 }
 
 @media screen and (max-width: 404px){

@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.App {
+  text-align: center;
+  max-width: 1440px;
+  height: auto;
+  margin: 0 auto;
+  background: #2a121f;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.character-list {
+  padding: 50px 30px 100px 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.paginationBttns {
+  padding: 20px;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  -webkit-transform: translate(50%);
+          transform: translate(50%);
+}
+
+.paginationBttns a {
+  padding: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  border: 1px solid #baa86a;
+  color: #f1e7cc;
+  cursor: pointer;
+  background: #0a0a0a;
+  font-size: 14px;
+}
+
+.paginationBttns a:hover {
+  color: black;
+  background: #baa86a;
+}
+
+.paginationActive a {
+  font-weight: bolder;
+  color: #2a121f;
+  background: #baa86a;
+}
+
+@media screen and (max-width: 404px) {
+  .paginationBttns a {
+    margin: 4px;
+  }
+}
+/*# sourceMappingURL=Global.css.map */

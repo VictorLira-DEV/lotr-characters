@@ -1,6 +1,35 @@
+@font-face {
+    font-family: "elfic";
+    src: url('../../../font/TheOneRing.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "lotr";
+    src: url('../../../font/lotr.TTF') format('truetype');
+}
+
+
 .character-wrapper {
     list-style: none;
     margin: 0 auto;
+    position: relative;
+    .points{
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 30px;
+        margin: 0 auto;
+        right: 50%;
+        transform: translate(50%);
+        top: 1px;
+        div{
+            width: 3px;
+            height: 3px;
+            background-color: #baa86a;
+            border-radius: 100%;
+        }
+    }
 
     .character-item {
         width: 300px;
@@ -13,6 +42,9 @@
         background: #0a0a0a; 
         color: #f1e7cc;
         margin: 0px 20px 20px 20px;
+        position: relative;
+        padding-bottom: 20px;
+        transition: .2s ease-in-out;
 
         .header {
             padding: 0 10px;
@@ -20,12 +52,13 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            font-size: 19px;
+            font-size: 16px;
             min-height: 60px;
 
             .index {
-                min-width: 50px;
-                height: 50px;
+                min-width: 40px;
+                height: 40px;
+                margin-right: 10px;
                 position: relative;
                 .img {
                     width: 100%;
@@ -44,7 +77,7 @@
                     right: 50%;
                     top: 50%;
                     transform: translate(50%, -50%);
-                    font-size: 20px;
+                    font-size: 16px;
                 }
             }
 
@@ -88,11 +121,13 @@
             text-align: start;
             position: relative;
             padding-left: 10px;
+  
             .death {
                 padding-bottom: 17px;
             }
 
             .link {
+                
                 margin-top: 10px;
                 position: absolute;
                 bottom: 0;
@@ -101,13 +136,28 @@
                 width: 100%;
                 text-align: center;
                 a {
+                    font-family: 'lotr';
+                    text-transform: lowercase;
+                    letter-spacing: 1px ;
+                    font-weight: 100;
+                    font-size: 13px;
                     text-decoration: none;
-                    color: white;
+                    color: #f1e7cc;
                     &:hover{
                         text-decoration: underline;
                     }
                 }
             }
+        }
+
+        .elfic-font{
+            font-family: 'elfic';
+            font-size: 35px;
+            font-weight: 100;
+            position: absolute;
+            bottom: -9px;
+            right: 5px;
+            // transform: translate(50%);
         }
     }
 }

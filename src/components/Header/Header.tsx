@@ -1,5 +1,6 @@
 import React, {  } from 'react';
 import styles from '../../styles/Header/Header.module.css';
+import ring_logo from '../../assets/ring-logo.png'
 
 interface headerProps {
     onReceiveRace: (e:string) => void
@@ -14,8 +15,8 @@ const Header = (props: headerProps) => {
     return(
         <header className={styles.header} >
             <div className={styles.logo}>
-                <img src="./ring-logo.png" />
-                <h1> Characters </h1>
+                <img src={ring_logo} alt="card avatar" />
+                <h1> The lord of the Rings </h1>
             </div>
             <div>
             <select className={styles['select-race']} name="Select the Race" onChange={raceSelected}>

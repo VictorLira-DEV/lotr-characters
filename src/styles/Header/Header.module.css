@@ -1,8 +1,12 @@
+@font-face {
+  font-family: "casa";
+  src: url("../../font/lotr.TTF") format("truetype");
+}
+
 .header {
   padding: 10px 30px;
   width: 100%;
-  color: white;
-  background-color: #1b1b1b;
+  background-color: black;
   text-align: start;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -30,7 +34,9 @@
 }
 
 .header .logo h1 {
-  color: #f1e7cc;
+  color: #baa86a;
+  font-weight: 400;
+  font-family: 'casa';
 }
 
 .header input {
@@ -52,18 +58,29 @@
           appearance: none;
   -webkit-box-shadow: none;
           box-shadow: none;
-  border: 1px solid #baa86a !important;
+  border: 1px solid #baa86a;
   background: rgba(2, 2, 2, 0.9);
   color: #f1e7cc;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   padding: 0 0.5em;
-  font-weight: bold;
+  font-size: 15px;
   cursor: pointer;
-  font-size: 1rem;
   padding: 5px;
   height: 40px;
+}
+
+@media screen and (max-width: 808px) {
+  .header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
 }
 
 @media screen and (max-width: 745px) {
@@ -87,6 +104,26 @@
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .header .logo img {
+    width: 50px;
+  }
+}
+
+@media screen and (max-width: 436px) {
+  .header .logo h1 {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .header {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 }
 
