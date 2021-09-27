@@ -23,6 +23,7 @@ function App() {
     const [raceSelected, setRaceSelected] = useState<string>("");
     const [characters, setCharacters] = useState<CharacterInfo[]>([]);
     const [pageNumber, setPageNumber] = useState<number>(0);
+    const [filterByName, setFilterByName] = useState<string>("");
     const usersPerPage = 12;
     const pagesVisited = pageNumber * usersPerPage;
 
@@ -55,19 +56,20 @@ function App() {
     };
 
     const removeIncorrectData = (data: []) => {
-
         const newData: CharacterInfo[] = [];
         data.forEach((character: CharacterInfo) => {
             if (character.race !== "NaN" && character.race.length > 2) {
                 newData.push(character);
+            } else {
+                console.log(character);
             }
         });
-        
+
         return newData;
     };
 
     useEffect(() => {
-        const fetchData = async () => {
+        const firstRender = async () => {
             const characters = await fetch(
                 "https://the-one-api.dev/v2/character",
                 {
@@ -79,15 +81,12 @@ function App() {
             const newData = removeIncorrectData(data);
             setCharacters(newData);
         };
-
-        fetchData();
+        firstRender();
+        return;
     }, []);
 
-    const receiveRace = (race: string) => {
-        setRaceSelected(race);
-    };
-
     useEffect(() => {
+        if (raceSelected === "") return;
         if (raceSelected === "All") {
             const fetchData = async () => {
                 const characters = await fetch(
@@ -119,13 +118,47 @@ function App() {
             const newData = removeIncorrectData(data);
             setCharacters(newData);
         };
-
         fetchData();
     }, [raceSelected]);
 
+    const receiveRace = (race: string) => {
+        setRaceSelected(race);
+    };
+
+    //filter
+    const filteringByName = (e: string) => {
+        setFilterByName(e);
+    };
+
+    useEffect(() => {
+        if (filterByName === "") return;
+        const timer = setTimeout(() => {
+            const fetchData = async () => {
+                const characters = await fetch(
+                    `https://the-one-api.dev/v2/character?name=${filterByName}`,
+                    {
+                        headers,
+                    }
+                );
+                const listOfCharacters = await characters.json();
+                const data = listOfCharacters.docs;
+                const newData = removeIncorrectData(data);
+                setCharacters(newData);
+            };
+
+            fetchData();
+        }, 1000);
+        return () => {
+            clearTimeout(timer);
+        };
+    }, [filterByName]);
+
     return (
         <div className="App">
-            <Header onReceiveRace={receiveRace} />
+            <Header
+                onReceiveRace={receiveRace}
+                onFilteringByName={filteringByName}
+            />
             <ul className="character-list">{displayCharacters}</ul>
             <ReactPaginate
                 previousLabel={"Prev"}

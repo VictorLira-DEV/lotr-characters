@@ -1,7 +1,7 @@
-@import '../variables';
+@import "../variables";
 @font-face {
     font-family: "casa";
-    src: url('../../font/lotr.TTF') format('truetype');
+    src: url("../../font/lotr.TTF") format("truetype");
 }
 
 .header {
@@ -13,21 +13,20 @@
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #4e4a3b;
-    .logo{
+    .logo {
         display: flex;
         align-items: center;
-        img{
+        img {
             width: 70px;
         }
 
-        h1{
+        h1 {
             color: $color-dark-golden;
             font-weight: 400;
-            font-family: 'casa';
+            font-family: "casa";
         }
     }
 
-    
     input {
         border: 1px solid $color-dark-golden;
         background: $color-black;
@@ -57,45 +56,43 @@
 }
 
 @media screen and (max-width: 808px) {
-    .header{
+    .header {
         flex-direction: column;
         align-items: flex-start;
-        
     }
 }
 
 @media screen and (max-width: 745px) {
-    .header{
+    .header {
         flex-direction: column;
         padding: 10px 10px;
-        .logo{
+        .logo {
             margin-bottom: 10px;
             justify-content: flex-start;
         }
     }
 }
 
-
 @media screen and (max-width: 656px) {
-    .header{
+    .header {
         justify-content: center;
     }
 }
 
 @media screen and (max-width: 500px) {
-    .header{
-        .logo{
-            img{
+    .header {
+        .logo {
+            img {
                 width: 50px;
             }
         }
     }
 }
 
-@media screen and (max-width: 436px){
-    .header{
-        .logo{
-            h1{
+@media screen and (max-width: 436px) {
+    .header {
+        .logo {
+            h1 {
                 font-size: 22px;
             }
         }
@@ -103,19 +100,19 @@
 }
 
 @media screen and (max-width: 400px) {
-    .header{
-       align-items: center;
+    .header {
+        align-items: center;
     }
 }
 
 @media screen and (max-width: 362px) {
-    .header{
+    .header {
         padding: 10px 20px;
-        input{
+        input {
             max-width: 150px;
         }
 
-        .select-race{
+        .select-race {
             max-width: 140px;
         }
     }
