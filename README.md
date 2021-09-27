@@ -23,11 +23,12 @@
 
 
 ## About
-I've developed this app using an Fake API called Json Placeholder you can find it on --> https://jsonplaceholder.typicode.com/, this API allow us to work with some routs, this project has users, companies, and founders routs! all the data is comming from the database file, the form allows the user to register, I used Fetch function to GET the data from back-end, to POST and DELETE the user! it's 100% responsible.
+This project consumes a this awesome rest  <a href="https://github.com/gitfrosh/lotr-api"> API </a>, which holds the code base of the API to rule them all, the Lord of the Rings API, which provides you with book, character, movie, and quotes data. But I'm using the list of characters for this project! you will learn more about each character individually! : )
 
 ## :star: Features
 - [x] Search bar
 - [x] Select Race
+- [x] List of Characters
 
 
 ## :rocket: Technologies used:
