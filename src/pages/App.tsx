@@ -159,7 +159,12 @@ function App() {
                 onReceiveRace={receiveRace}
                 onFilteringByName={filteringByName}
             />
-            <ul className="character-list">{displayCharacters}</ul>
+            {characters.length > 0 ? (
+                <ul className="character-list">{displayCharacters}</ul>
+            ) : (
+                <h1 className="warning-text"> No Character Was Found </h1>
+            )}
+
             <ReactPaginate
                 previousLabel={"Prev"}
                 nextLabel={"Next"}

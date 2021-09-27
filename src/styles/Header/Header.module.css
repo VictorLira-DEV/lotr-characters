@@ -36,7 +36,7 @@
 .header .logo h1 {
   color: #baa86a;
   font-weight: 400;
-  font-family: 'casa';
+  font-family: "casa";
 }
 
 .header input {
@@ -59,7 +59,7 @@
   -webkit-box-shadow: none;
           box-shadow: none;
   border: 1px solid #baa86a;
-  background: rgba(2, 2, 2, 0.9);
+  background: black;
   color: #f1e7cc;
   -webkit-box-flex: 1;
       -ms-flex: 1;

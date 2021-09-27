@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
-@import './variables';
+@import '../variables';
 
 * {
     padding: 0;
@@ -17,7 +17,14 @@
     min-height: 100vh;
     position: relative;
     overflow: hidden;
+    .warning-text{
+      margin-top: 50px;
+      font-size: 24px;
+      color: $color-dark-golden;
+    }
 }
+
+
 
 .character-list{
   padding: 50px 30px 100px 30px;
@@ -40,7 +47,7 @@
     margin: 8px;
     border-radius: 5px;
     border: 1px solid $color-dark-golden;
-    color: $color-light-golder;
+    color: $color-light-golden;
     cursor: pointer;
     background: $color-black; 
     font-size: 14px;

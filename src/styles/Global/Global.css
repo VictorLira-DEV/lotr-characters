@@ -18,6 +18,12 @@
   overflow: hidden;
 }
 
+.App .warning-text {
+  margin-top: 50px;
+  font-size: 24px;
+  color: #baa86a;
+}
+
 .character-list {
   padding: 50px 30px 100px 30px;
   display: -webkit-box;
@@ -51,7 +57,7 @@
   border: 1px solid #baa86a;
   color: #f1e7cc;
   cursor: pointer;
-  background: #0a0a0a;
+  background: black;
   font-size: 14px;
 }
 
@@ -62,7 +68,7 @@
 
 .paginationActive a {
   font-weight: bolder;
-  color: #2a121f;
+  color: black;
   background: #baa86a;
 }
 
