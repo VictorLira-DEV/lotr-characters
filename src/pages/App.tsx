@@ -27,11 +27,6 @@ function App() {
     const usersPerPage = 12;
     const pagesVisited = pageNumber * usersPerPage;
 
-    const headers = {
-        Accept: "application/json",
-        Authorization: "Bearer xvi06TocPJvBmrQC4yZv",
-    };
-
     const displayCharacters = characters
         .slice(pagesVisited, pagesVisited + usersPerPage)
         .map((characters1, index) => {
@@ -60,8 +55,6 @@ function App() {
         data.forEach((character: CharacterInfo) => {
             if (character.race !== "NaN" && character.race.length > 2) {
                 newData.push(character);
-            } else {
-                console.log(character);
             }
         });
 
@@ -69,6 +62,12 @@ function App() {
     };
 
     useEffect(() => {
+        const headers = {
+            Accept: "application/json",
+            Authorization: "Bearer Mx9pH2p0_osox9nIk9Tw",
+        };
+
+
         const firstRender = async () => {
             const characters = await fetch(
                 "https://the-one-api.dev/v2/character",
@@ -86,6 +85,11 @@ function App() {
     }, []);
 
     useEffect(() => {
+        const headers = {
+            Accept: "application/json",
+            Authorization: "Bearer Mx9pH2p0_osox9nIk9Tw",
+        };
+
         if (raceSelected === "") return;
         if (raceSelected === "All") {
             const fetchData = async () => {
@@ -107,6 +111,11 @@ function App() {
         }
 
         const fetchData = async () => {
+            const headers = {
+                Accept: "application/json",
+                Authorization: "Bearer Mx9pH2p0_osox9nIk9Tw",
+            };
+
             const characters = await fetch(
                 `https://the-one-api.dev/v2/character?race=${raceSelected}`,
                 {
@@ -132,6 +141,12 @@ function App() {
 
     useEffect(() => {
         if (filterByName === "") return;
+        
+        const headers = {
+            Accept: "application/json",
+            Authorization: "Bearer Mx9pH2p0_osox9nIk9Tw",
+        };
+
         const timer = setTimeout(() => {
             const fetchData = async () => {
                 const characters = await fetch(
