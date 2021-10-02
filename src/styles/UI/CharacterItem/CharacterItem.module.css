@@ -184,6 +184,7 @@
 
 .character-wrapper .character-item .info .link a:hover {
   text-decoration: underline;
+  color: #72a4dc;
 }
 
 .character-wrapper .character-item .elfic-font {

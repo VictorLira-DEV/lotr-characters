@@ -7,6 +7,26 @@
   font-family: 'Poppins', sans-serif;
 }
 
+::-webkit-input-placeholder {
+  color: rgba(241, 231, 204, 0.8);
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: rgba(241, 231, 204, 0.8);
+  opacity: 1;
+}
+
+::-ms-input-placeholder {
+  color: rgba(241, 231, 204, 0.8);
+  opacity: 1;
+}
+
+::placeholder {
+  color: rgba(241, 231, 204, 0.8);
+  opacity: 1;
+}
+
 .App {
   text-align: center;
   max-width: 1440px;

@@ -8,6 +8,11 @@
     font-family: 'Poppins', sans-serif;
 }
 
+::placeholder { 
+  color: rgba($color: #f1e7cc, $alpha: 0.8);
+  opacity: 1;
+}
+
 .App {
     text-align: center;
     max-width: 1440px;
