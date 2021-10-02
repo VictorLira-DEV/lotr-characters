@@ -48,6 +48,8 @@
   height: 40px;
   font-size: 15px;
   padding: 5px;
+  text-align: center;
+  border-radius: 4px;
 }
 
 .header .select-race {
@@ -69,6 +71,7 @@
   cursor: pointer;
   padding: 5px;
   height: 40px;
+  border-radius: 4px;
 }
 
 @media screen and (max-width: 808px) {
