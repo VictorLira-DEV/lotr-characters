@@ -169,10 +169,10 @@
   -webkit-transform: translate(50%);
           transform: translate(50%);
   width: 100%;
+  text-align: center;
 }
 
 .character-wrapper .character-item .info .link a {
-  text-align: center;
   font-family: "lotr";
   text-transform: lowercase;
   letter-spacing: 1px;
