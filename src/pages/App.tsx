@@ -3,8 +3,8 @@ import ReactPaginate from "react-paginate";
 import "../styles/Global/Global.css";
 import Header from "../components/Header/Header";
 import CharacterItem from "../components/UI/CharacterItem/CharacterItem";
-
 function App() {
+    
     interface CharacterInfo {
         id: string;
         name: string;
@@ -24,6 +24,7 @@ function App() {
     const [characters, setCharacters] = useState<CharacterInfo[]>([]);
     const [pageNumber, setPageNumber] = useState<number>(0);
     const [filterByName, setFilterByName] = useState<string>("");
+    const [goBackToPage1, setGoBackToPageOne] = useState<number>(0);
     const usersPerPage = 12;
     const pagesVisited = pageNumber * usersPerPage;
 
@@ -44,7 +45,7 @@ function App() {
             );
         });
 
-    const pageCount = Math.ceil(characters.length / usersPerPage);
+    let pageCount = Math.ceil(characters.length / usersPerPage);
 
     const changePage = ({ selected }: ChangePage) => {
         setPageNumber(selected);
@@ -67,7 +68,6 @@ function App() {
             Authorization: "Bearer Mx9pH2p0_osox9nIk9Tw",
         };
 
-
         const firstRender = async () => {
             const characters = await fetch(
                 "https://the-one-api.dev/v2/character",
@@ -85,6 +85,7 @@ function App() {
     }, []);
 
     useEffect(() => {
+        
         const headers = {
             Accept: "application/json",
             Authorization: "Bearer Mx9pH2p0_osox9nIk9Tw",
@@ -102,7 +103,6 @@ function App() {
                 const listOfCharacters = await characters.json();
                 const data = listOfCharacters.docs;
                 const newData = removeIncorrectData(data);
-
                 setCharacters(newData);
             };
 
@@ -125,7 +125,10 @@ function App() {
             const listOfCharacters = await characters.json();
             const data = listOfCharacters.docs;
             const newData = removeIncorrectData(data);
+            // setGoBackToPageOne(0)
+            setPageNumber(0)
             setCharacters(newData);
+
         };
         fetchData();
     }, [raceSelected]);
@@ -139,9 +142,24 @@ function App() {
         setFilterByName(e);
     };
 
+    const capitalizeName = function (inputLetter: string) {
+        if (inputLetter.includes(" ")) {
+            const inputSlitted = inputLetter.split(" ");
+            const inputArray = inputSlitted.filter((input) => input !== "");
+            const inputUpper = inputArray.map(
+                (n) => n[0].toUpperCase() + n.slice(1).toLowerCase()
+            );
+            const inputCapitelized = inputUpper.join(" ");
+            return inputCapitelized;
+        }
+        const input = inputLetter.toLowerCase();
+        const inputCapitelized = input[0].toUpperCase() + input.slice(1);
+        return inputCapitelized;
+    };
+
     useEffect(() => {
         if (filterByName === "") return;
-        
+        const filterInputFormated = capitalizeName(filterByName);
         const headers = {
             Accept: "application/json",
             Authorization: "Bearer Mx9pH2p0_osox9nIk9Tw",
@@ -150,7 +168,7 @@ function App() {
         const timer = setTimeout(() => {
             const fetchData = async () => {
                 const characters = await fetch(
-                    `https://the-one-api.dev/v2/character?name=${filterByName}`,
+                    `https://the-one-api.dev/v2/character?name=${filterInputFormated}`,
                     {
                         headers,
                     }
@@ -174,13 +192,14 @@ function App() {
                 onReceiveRace={receiveRace}
                 onFilteringByName={filteringByName}
             />
-            {characters.length > 0 ? (
+
+            {characters.length > 0 || filterByName === "" ? (
                 <ul className="character-list">{displayCharacters}</ul>
             ) : (
-                <h1 className="warning-text"> No Character Was Found </h1>
+                <h1 className="warning-text"> No character was found, enter the full name</h1>
             )}
-
             <ReactPaginate
+                forcePage={goBackToPage1}
                 previousLabel={"Prev"}
                 nextLabel={"Next"}
                 pageCount={pageCount}

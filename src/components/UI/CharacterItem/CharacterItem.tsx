@@ -111,7 +111,7 @@ const CharacterItem = (props: CharacterInfo) => {
                     <p>{props.name}</p>
                 </div>
                 <div className={styles.picture}>
-                    <img src={checkGender()} alt="dd" />
+                    <img src={checkGender()} alt="avatar" />
                 </div>
                 <div className={styles.race}>
                     {" "}
@@ -128,15 +128,13 @@ const CharacterItem = (props: CharacterInfo) => {
                         <p className={styles.death}>Death : {props.death} </p>
                     )}
                     <p className={styles.link}>
-                        {" "}
                         <a
                             href={`${props.link}`}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            {" "}
                             More About This Character{" "}
-                        </a>{" "}
+                        </a>
                     </p>
                 </div>
                 <p className={styles["elfic-font"]}>tt</p>

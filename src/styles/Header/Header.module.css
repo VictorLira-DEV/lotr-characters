@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "casa";
+  font-family: "lord-of-the-rings";
   src: url("../../font/lotr.TTF") format("truetype");
 }
 
@@ -36,7 +36,7 @@
 .header .logo h1 {
   color: #baa86a;
   font-weight: 400;
-  font-family: "casa";
+  font-family: "lord-of-the-rings";
 }
 
 .header input {

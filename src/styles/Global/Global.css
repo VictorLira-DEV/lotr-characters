@@ -72,6 +72,10 @@
   background: #baa86a;
 }
 
+.hide {
+  display: none;
+}
+
 @media screen and (max-width: 404px) {
   .paginationBttns a {
     margin: 4px;

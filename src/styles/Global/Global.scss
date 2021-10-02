@@ -32,7 +32,7 @@
   flex-wrap: wrap;
 }
 
-.paginationBttns {
+.paginationBttns{
   padding: 20px;
   list-style: none;
   display: flex;
@@ -42,6 +42,7 @@
   bottom: 0;
   right: 50%;
   transform: translate(50%);
+  
   a {
     padding: 10px;
     margin: 8px;
@@ -57,9 +58,8 @@
       background: $color-dark-golden;
     }
   }
-  
-}
 
+}
 
 .paginationActive a {
   font-weight: bolder;
@@ -67,8 +67,16 @@
   background: $color-dark-golden;
 }
 
+.hide{
+  display: none;
+}
+
+
 @media screen and (max-width: 404px){
   .paginationBttns a{
     margin: 4px;
   }
 }
+
+
+

@@ -1,6 +1,6 @@
 @import "../variables";
 @font-face {
-    font-family: "casa";
+    font-family: "lord-of-the-rings";
     src: url("../../font/lotr.TTF") format("truetype");
 }
 
@@ -23,7 +23,7 @@
         h1 {
             color: $color-dark-golden;
             font-weight: 400;
-            font-family: "casa";
+            font-family: "lord-of-the-rings";
         }
     }
 
