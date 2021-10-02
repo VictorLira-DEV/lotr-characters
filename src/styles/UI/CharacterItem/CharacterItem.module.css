@@ -154,7 +154,7 @@
   border: 1px solid #baa86a;
   text-align: start;
   position: relative;
-  padding-left: 10px;
+  padding: 5px 0 0 10px;
 }
 
 .character-wrapper .character-item .info .death {
