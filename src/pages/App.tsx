@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import "../styles/Global/Global.css";
 import Header from "../components/Header/Header";
-import CharacterItem from "../components/UI/CharacterItem/CharacterItem";
+import CharacterItem from "../components/UI/CharacterItem";
+import Loading from "../components/UI/Loading";
+
 function App() {
     interface CharacterInfo {
         id: string;
@@ -26,6 +28,7 @@ function App() {
     const [characters, setCharacters] = useState<CharacterInfo[]>([]);
     const [pageNumber, setPageNumber] = useState<number>(0);
     const [filterByName, setFilterByName] = useState<string>("");
+    const [isLoading, setIsLoading] = useState(false);
     const usersPerPage = 12;
     const pagesVisited = pageNumber * usersPerPage;
 
@@ -79,6 +82,7 @@ function App() {
     };
 
     useEffect(() => {
+        setIsLoading(true);
         const headers = {
             Accept: "application/json",
             Authorization: "Bearer Mx9pH2p0_osox9nIk9Tw",
@@ -95,15 +99,18 @@ function App() {
             const newData = removeIncorrectData(data);
             setCharacters(newData);
             setMainListOfCharacters(newData);
+            setIsLoading(false);
         };
         firstRender();
         return;
     }, []);
 
     useEffect(() => {
+        setIsLoading(true)
         if (raceSelected === "") return;
         if (raceSelected === "All") {
             setCharacters(mainListOfCharacters);
+            setIsLoading(false)
             return;
         }
 
@@ -124,6 +131,7 @@ function App() {
             const newData = removeIncorrectData(data);
             setPageNumber(0);
             setCharacters(newData);
+            setIsLoading(false)
         };
         fetchData();
     }, [raceSelected]);
@@ -156,11 +164,11 @@ function App() {
                 onFilteringByName={filteringByName}
             />
 
-            {characters.length > 0 || filterByName === "" ? (
+            {!isLoading && characters.length > 0 && filterByName === "" && (
                 <ul className="character-list">{displayCharacters}</ul>
-            ) : (
-                <h1 className="warning-text"> No character was found</h1>
             )}
+            {isLoading && <Loading />}
+            {characters.length === 0 && filterByName !== "" && <h1 className="warning-text"> No character was found</h1>}
             <ReactPaginate
                 forcePage={0}
                 previousLabel={"Prev"}

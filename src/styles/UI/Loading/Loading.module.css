@@ -1,0 +1,25 @@
+.circle {
+  margin: 70px auto;
+  width: 40px;
+  height: 40px;
+  border: 5px solid rgba(143, 104, 104, 0.6);
+  border-radius: 50%;
+  border-top-color: #f1e7cc;
+  -webkit-animation: spin 1s linear infinite;
+          animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+/*# sourceMappingURL=Loading.module.css.map */
