@@ -170,7 +170,7 @@ function App() {
             {isLoading && <Loading />}
             {characters.length === 0 && filterByName !== "" && <h1 className="warning-text"> No character was found</h1>}
             {filterByName !== "" && <ul className="character-list">{displayCharacters}</ul>}
-            <ReactPaginate
+            {!isLoading && <ReactPaginate
                 forcePage={0}
                 previousLabel={"Prev"}
                 nextLabel={"Next"}
@@ -183,7 +183,7 @@ function App() {
                 nextLinkClassName={"nextBttn"}
                 disabledClassName={"paginationDisabled"}
                 activeClassName={"paginationActive"}
-            />
+            />}
         </div>
     );
 }
