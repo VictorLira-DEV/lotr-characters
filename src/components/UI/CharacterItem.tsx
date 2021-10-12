@@ -130,7 +130,7 @@ const CharacterItem = (props: CharacterInfo) => {
                     <p className={styles.link}>
                         <a
                             href={`${props.link}`}
-                            target="_blank"
+                            target="blank"
                             rel="noopener noreferrer"
                         >
                             More About This Character{" "}
@@ -143,4 +143,4 @@ const CharacterItem = (props: CharacterInfo) => {
     );
 };
 
-export default CharacterItem;
+export default CharacterItem
