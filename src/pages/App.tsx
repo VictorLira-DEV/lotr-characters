@@ -168,7 +168,8 @@ function App() {
                 <ul className="character-list">{displayCharacters}</ul>
             )}
             {isLoading && <Loading />}
-            {characters.length === 0 && filterByName !== "" ? <h1 className="warning-text"> No character was found</h1> : <ul className="character-list">{displayCharacters}</ul>}
+            {characters.length === 0 && filterByName !== "" && <h1 className="warning-text"> No character was found</h1>}
+            {filterByName !== "" && <ul className="character-list">{displayCharacters}</ul>}
             <ReactPaginate
                 forcePage={0}
                 previousLabel={"Prev"}
