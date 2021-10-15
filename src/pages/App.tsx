@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import ReactPaginate from "react-paginate";
 import "../styles/Global/Global.css";
 import Header from "../components/Header/Header";
@@ -55,7 +55,7 @@ function App() {
         setPageNumber(selected);
     };
 
-    const removeIncorrectData = (data: []) => {
+    const removeIncorrectData = useCallback((data: []) => {
         const newData: CharacterInfo[] = [];
         data.forEach((character: CharacterInfo) => {
             if (character.race !== "NaN" && character.race.length > 2) {
@@ -64,9 +64,9 @@ function App() {
         });
 
         return newData;
-    };
+    }, []);
 
-    const capitalizeName = function (inputLetter: string) {
+    const capitalizeName = useCallback((inputLetter: string) =>{
         if (inputLetter.includes(" ")) {
             const inputSlitted = inputLetter.split(" ");
             const inputArray = inputSlitted.filter((input) => input !== "");
@@ -79,7 +79,7 @@ function App() {
         const input = inputLetter.toLowerCase();
         const inputCapitelized = input[0].toUpperCase() + input.slice(1);
         return inputCapitelized;
-    };
+    }, []);
 
     useEffect(() => {
         setIsLoading(true);
@@ -103,7 +103,7 @@ function App() {
         };
         firstRender();
         return;
-    }, []);
+    }, [removeIncorrectData]);
 
     useEffect(() => {
         setIsLoading(true)
@@ -134,7 +134,7 @@ function App() {
             setIsLoading(false)
         };
         fetchData();
-    }, [raceSelected]);
+    }, [raceSelected, removeIncorrectData]);
 
     const receiveRace = (race: string) => {
         setRaceSelected(race);
@@ -155,7 +155,7 @@ function App() {
 
         setPageNumber(0);
         setCharacters(filteredByName);
-    }, [filterByName]);
+    }, [filterByName, capitalizeName]);
 
     return (
         <div className="App">
@@ -170,7 +170,7 @@ function App() {
             {isLoading && <Loading />}
             {characters.length === 0 && filterByName !== "" && <h1 className="warning-text"> No character was found</h1>}
             {filterByName !== "" && <ul className="character-list">{displayCharacters}</ul>}
-            <ReactPaginate
+            {isLoading === false && <ReactPaginate
                 forcePage={0}
                 previousLabel={"Prev"}
                 nextLabel={"Next"}
@@ -183,7 +183,7 @@ function App() {
                 nextLinkClassName={"nextBttn"}
                 disabledClassName={"paginationDisabled"}
                 activeClassName={"paginationActive"}
-            />
+            />}
         </div>
     );
 }

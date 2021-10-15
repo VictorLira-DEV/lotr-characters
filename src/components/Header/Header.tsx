@@ -2,12 +2,12 @@ import React from "react";
 import styles from "../../styles/Header/Header.module.css";
 import ring_logo from "../../assets/ring-logo.png";
 
-interface headerProps {
+interface HeaderProps {
     onReceiveRace: (e: string) => void;
     onFilteringByName: (e: string) => void;
 }
 
-const Header = (props: headerProps) => {
+const Header = (props: HeaderProps) => {
     const raceSelected = (e: React.ChangeEvent<HTMLSelectElement>) => {
         props.onReceiveRace(e.currentTarget.value);
     };
