@@ -66,7 +66,7 @@ function App() {
         return newData;
     }, []);
 
-    const capitalizeName = useCallback((inputLetter: string) =>{
+    const capitalizeName = useCallback((inputLetter: string) => {
         if (inputLetter.includes(" ")) {
             const inputSlitted = inputLetter.split(" ");
             const inputArray = inputSlitted.filter((input) => input !== "");
@@ -106,11 +106,11 @@ function App() {
     }, [removeIncorrectData]);
 
     useEffect(() => {
-        setIsLoading(true)
+        setIsLoading(true);
         if (raceSelected === "") return;
         if (raceSelected === "All") {
             setCharacters(mainListOfCharacters);
-            setIsLoading(false)
+            setIsLoading(false);
             return;
         }
 
@@ -131,7 +131,7 @@ function App() {
             const newData = removeIncorrectData(data);
             setPageNumber(0);
             setCharacters(newData);
-            setIsLoading(false)
+            setIsLoading(false);
         };
         fetchData();
     }, [raceSelected, removeIncorrectData]);
@@ -168,22 +168,29 @@ function App() {
                 <ul className="character-list">{displayCharacters}</ul>
             )}
             {isLoading && <Loading />}
-            {characters.length === 0 && filterByName !== "" && <h1 className="warning-text"> No character was found</h1>}
-            {filterByName !== "" && <ul className="character-list">{displayCharacters}</ul>}
-            {isLoading === false && <ReactPaginate
-                forcePage={0}
-                previousLabel={"Prev"}
-                nextLabel={"Next"}
-                pageCount={pageCount}
-                onPageChange={changePage}
-                pageRangeDisplayed={1}
-                marginPagesDisplayed={1}
-                containerClassName={"paginationBttns"}
-                previousLinkClassName={"previousBttn"}
-                nextLinkClassName={"nextBttn"}
-                disabledClassName={"paginationDisabled"}
-                activeClassName={"paginationActive"}
-            />}
+            {characters.length === 0 && filterByName !== "" && (
+                <h1 className="warning-text"> No character was found</h1>
+            )}
+            {filterByName !== "" && (
+                <ul className="character-list">{displayCharacters}</ul>
+            )}
+
+            {!isLoading && (
+                <ReactPaginate
+                    forcePage={0}
+                    previousLabel={"Prev"}
+                    nextLabel={"Next"}
+                    pageCount={pageCount}
+                    onPageChange={changePage}
+                    pageRangeDisplayed={1}
+                    marginPagesDisplayed={1}
+                    containerClassName={"paginationBttns"}
+                    previousLinkClassName={"previousBttn"}
+                    nextLinkClassName={"nextBttn"}
+                    disabledClassName={"paginationDisabled"}
+                    activeClassName={"paginationActive"}
+                />
+            )}
         </div>
     );
 }
