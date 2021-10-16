@@ -5,6 +5,21 @@ import Header from "../components/Header/Header";
 import CharacterItem from "../components/UI/CharacterItem";
 import Loading from "../components/UI/Loading";
 
+const capitalizeName = (inputLetter: string) => {
+    if (inputLetter.includes(" ")) {
+        const inputSlitted = inputLetter.split(" ");
+        const inputArray = inputSlitted.filter((input) => input !== "");
+        const inputUpper = inputArray.map(
+            (n) => n[0].toUpperCase() + n.slice(1).toLowerCase()
+        );
+        const inputCapitelized = inputUpper.join(" ");
+        return inputCapitelized;
+    }
+    const input = inputLetter.toLowerCase();
+    const inputCapitelized = input[0].toUpperCase() + input.slice(1);
+    return inputCapitelized;
+};
+
 function App() {
     interface CharacterInfo {
         id: string;
@@ -64,21 +79,6 @@ function App() {
         });
 
         return newData;
-    }, []);
-
-    const capitalizeName = useCallback((inputLetter: string) => {
-        if (inputLetter.includes(" ")) {
-            const inputSlitted = inputLetter.split(" ");
-            const inputArray = inputSlitted.filter((input) => input !== "");
-            const inputUpper = inputArray.map(
-                (n) => n[0].toUpperCase() + n.slice(1).toLowerCase()
-            );
-            const inputCapitelized = inputUpper.join(" ");
-            return inputCapitelized;
-        }
-        const input = inputLetter.toLowerCase();
-        const inputCapitelized = input[0].toUpperCase() + input.slice(1);
-        return inputCapitelized;
     }, []);
 
     useEffect(() => {
