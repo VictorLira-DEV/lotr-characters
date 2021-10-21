@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "../../styles/Header/Header.module.css";
-import ring_logo from "../../assets/ring-logo.png";
+import styles from "../styles/pages/Header/Header.module.css";
+import ring_logo from "../assets/images/ring-logo.png";
 
 interface HeaderProps {
     onReceiveRace: (e: string) => void;

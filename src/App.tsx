@@ -1,46 +1,23 @@
-import React, { useEffect, useState, useCallback } from "react";
+import { useEffect, useState} from "react";
+import {
+    capitalizeName,
+    removeIncorrectData,
+} from "./helper/reusableFunctions";
+import "./styles/Global/Global.css";
+import { URLcharacters, headers, URLcharactersRace } from "./services/api/lotr";
+import ICharacterInfo from "./interfaces/characterInfo";
+import IPaginationChange from "./interfaces/paginationChange";
 import ReactPaginate from "react-paginate";
-import "../styles/Global/Global.css";
-import Header from "../components/Header/Header";
-import CharacterItem from "../components/UI/CharacterItem";
-import Loading from "../components/UI/Loading";
-
-const capitalizeName = (inputLetter: string) => {
-    if (inputLetter.includes(" ")) {
-        const inputSlitted = inputLetter.split(" ");
-        const inputArray = inputSlitted.filter((input) => input !== "");
-        const inputUpper = inputArray.map(
-            (n) => n[0].toUpperCase() + n.slice(1).toLowerCase()
-        );
-        const inputCapitelized = inputUpper.join(" ");
-        return inputCapitelized;
-    }
-    const input = inputLetter.toLowerCase();
-    const inputCapitelized = input[0].toUpperCase() + input.slice(1);
-    return inputCapitelized;
-};
+import Header from "./pages/Header";
+import CharacterItem from "./components/CharacterItem";
+import Loading from "./components/Loading";
 
 function App() {
-    interface CharacterInfo {
-        id: string;
-        name: string;
-        index: number;
-        race: string;
-        gender: string;
-        wikiUrl: string;
-        birth: string;
-        death: string;
-    }
-
-    interface ChangePage {
-        selected: number;
-    }
-
     const [mainListOfCharacters, setMainListOfCharacters] = useState<
-        CharacterInfo[]
+        ICharacterInfo[]
     >([]);
     const [raceSelected, setRaceSelected] = useState<string>("");
-    const [characters, setCharacters] = useState<CharacterInfo[]>([]);
+    const [characters, setCharacters] = useState<ICharacterInfo[]>([]);
     const [pageNumber, setPageNumber] = useState<number>(0);
     const [filterByName, setFilterByName] = useState<string>("");
     const [isLoading, setIsLoading] = useState(false);
@@ -66,34 +43,16 @@ function App() {
 
     let pageCount = Math.ceil(characters.length / usersPerPage);
 
-    const changePage = ({ selected }: ChangePage) => {
+    const changePage = ({ selected }: IPaginationChange) => {
         setPageNumber(selected);
     };
 
-    const removeIncorrectData = useCallback((data: []) => {
-        const newData: CharacterInfo[] = [];
-        data.forEach((character: CharacterInfo) => {
-            if (character.race !== "NaN" && character.race.length > 2) {
-                newData.push(character);
-            }
-        });
-
-        return newData;
-    }, []);
-
     useEffect(() => {
         setIsLoading(true);
-        const headers = {
-            Accept: "application/json",
-            Authorization: "Bearer Mx9pH2p0_osox9nIk9Tw",
-        };
         const firstRender = async () => {
-            const characters = await fetch(
-                "https://the-one-api.dev/v2/character",
-                {
-                    headers,
-                }
-            );
+            const characters = await fetch(URLcharacters, {
+                headers,
+            });
             const listOfCharacters = await characters.json();
             const data = listOfCharacters.docs;
             const newData = removeIncorrectData(data);
@@ -115,17 +74,9 @@ function App() {
         }
 
         const fetchData = async () => {
-            const headers = {
-                Accept: "application/json",
-                Authorization: "Bearer Mx9pH2p0_osox9nIk9Tw",
-            };
-
-            const characters = await fetch(
-                `https://the-one-api.dev/v2/character?race=${raceSelected}`,
-                {
-                    headers,
-                }
-            );
+            const characters = await fetch(URLcharactersRace + raceSelected, {
+                headers,
+            });
             const listOfCharacters = await characters.json();
             const data = listOfCharacters.docs;
             const newData = removeIncorrectData(data);
