@@ -1,4 +1,4 @@
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import {
     capitalizeName,
     removeIncorrectData,
@@ -11,6 +11,7 @@ import ReactPaginate from "react-paginate";
 import Header from "./pages/Header";
 import CharacterItem from "./components/CharacterItem";
 import Loading from "./components/Loading";
+import useHttp from "./hooks/use-http";
 
 function App() {
     const [mainListOfCharacters, setMainListOfCharacters] = useState<
@@ -23,6 +24,9 @@ function App() {
     const [isLoading, setIsLoading] = useState(false);
     const usersPerPage = 12;
     const pagesVisited = pageNumber * usersPerPage;
+
+    const { sendRequest: initialGetRequest } = useHttp();
+    const { sendRequest: selectByRaceGetRequest } = useHttp();
 
     const displayCharacters = characters
         .slice(pagesVisited, pagesVisited + usersPerPage)
@@ -48,19 +52,15 @@ function App() {
     };
 
     useEffect(() => {
-        setIsLoading(true);
-        const firstRender = async () => {
-            const characters = await fetch(URLcharacters, {
-                headers,
-            });
-            const listOfCharacters = await characters.json();
-            const data = listOfCharacters.docs;
-            const newData = removeIncorrectData(data);
-            setCharacters(newData);
-            setMainListOfCharacters(newData);
+        const send = (data: ICharacterInfo[]) => {
+            const listOfCharacters = data;
+            const transformedData = removeIncorrectData(listOfCharacters);
+            setCharacters(transformedData);
+            setMainListOfCharacters(transformedData);
             setIsLoading(false);
         };
-        firstRender();
+
+        initialGetRequest({ url: URLcharacters, headers: headers }, send);
         return;
     }, [removeIncorrectData]);
 
@@ -73,18 +73,19 @@ function App() {
             return;
         }
 
-        const fetchData = async () => {
-            const characters = await fetch(URLcharactersRace + raceSelected, {
-                headers,
-            });
-            const listOfCharacters = await characters.json();
-            const data = listOfCharacters.docs;
-            const newData = removeIncorrectData(data);
+        const send = (data: ICharacterInfo[]) => {
+            const listOfCharacters = data;
+            const transformedData = removeIncorrectData(listOfCharacters);
+            setCharacters(transformedData);
             setPageNumber(0);
-            setCharacters(newData);
+            setCharacters(transformedData);
             setIsLoading(false);
         };
-        fetchData();
+
+        selectByRaceGetRequest(
+            { url: URLcharactersRace + raceSelected, headers },
+            send
+        );
     }, [raceSelected, removeIncorrectData]);
 
     const receiveRace = (race: string) => {

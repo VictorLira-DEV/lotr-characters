@@ -15,7 +15,8 @@ export const capitalizeName = (inputLetter: string) => {
     return inputCapitelized;
 };
 
-export const removeIncorrectData = (data: []) => {
+
+export const removeIncorrectData = (data: CharacterInfo[]) => {
     const newData: CharacterInfo[] = [];
     data.forEach((character: CharacterInfo) => {
         if (character.race !== "NaN" && character.race.length > 2) {
