@@ -17,7 +17,9 @@
 <br>
 
 <h3 align="center"> 
-	Application status: Developed ✔️
+	Application status: Developed ✔️<br/>
+        My Personal Project ✔️
+
 </h3>
 <br>
 
