@@ -1,6 +1,10 @@
 
 ## **<h2 align="center">React Application 💻</h2>**
 
+<h3 align="center"> 
+        My Personal Project ✔️
+</h3>
+<br>
 <p align="center">
   <a href="#computer-demonstration-of-the-application">Demonstration of the application</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#star-features">Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -17,9 +21,7 @@
 <br>
 
 <h3 align="center"> 
-	Application status: Developed ✔️<br/>
-        My Personal Project ✔️
-
+	Application status: Developed ✔️
 </h3>
 <br>
 
