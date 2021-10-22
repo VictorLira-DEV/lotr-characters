@@ -27,7 +27,7 @@
 
 
 ## About
-This project consumes a this awesome rest  <a href="https://github.com/gitfrosh/lotr-api"> API </a>, which holds the code base of the API to rule them all, the Lord of the Rings API, which provides you with book, character, movie, and quotes data. But I'm using the list of characters for this project! you will learn more about each character individually! : )
+This project consumes this awesome rest  <a href="https://github.com/gitfrosh/lotr-api"> API </a>, which holds the code base of the API to rule them all, the Lord of the Rings API, which provides you with book, character, movie, and quotes data. But I'm using the list of characters for this project! you will learn more about each character individually! : )
 
 ## :star: Features
 - [x] Search bar
