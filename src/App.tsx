@@ -49,6 +49,7 @@ function App() {
 
     const changePage = ({ selected }: IPaginationChange) => {
         setPageNumber(selected);
+        window.scroll(0,0)
     };
 
     useEffect(() => {
@@ -128,20 +129,21 @@ function App() {
             )}
 
             {!isLoading && (
-                <ReactPaginate
-                    forcePage={0}
-                    previousLabel={"Prev"}
-                    nextLabel={"Next"}
-                    pageCount={pageCount}
-                    onPageChange={changePage}
-                    pageRangeDisplayed={1}
-                    marginPagesDisplayed={1}
-                    containerClassName={"paginationBttns"}
-                    previousLinkClassName={"previousBttn"}
-                    nextLinkClassName={"nextBttn"}
-                    disabledClassName={"paginationDisabled"}
-                    activeClassName={"paginationActive"}
-                />
+                    <ReactPaginate
+                        forcePage={0}
+                        previousLabel={"Prev"}
+                        nextLabel={"Next"}
+                        pageCount={pageCount}
+                        onPageChange={changePage}
+                        pageRangeDisplayed={1}
+                        marginPagesDisplayed={1}
+                        containerClassName={"paginationBttns"}
+                        previousLinkClassName={"previousBttn"}
+                        nextLinkClassName={"nextBttn"}
+                        disabledClassName={"paginationDisabled"}
+                        activeClassName={"paginationActive"}
+
+                    />
             )}
         </div>
     );
