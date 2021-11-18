@@ -92,32 +92,36 @@ const CharacterItem = (props: CharacterInfo) => {
     };
 
     return (
-        <li id={props.key} className={styles["character-wrapper"]}>
-            <div className={styles["character-item"]}>
-                <div className={styles.points}>
+        <li id={props.key} className={styles["character-card"]}>
+            <div className={styles["character-card__content"]}>
+                <div className={styles["character-card__dots"]}>
                     <div></div>
                     <div></div>
                     <div></div>
                 </div>
-                <div className={styles.header}>
-                    <div className={styles.index}>
+                <div className={styles["character-card__header"]}>
+                    <div className={styles["character-card__index-wrapper"]}>
                         <div className={styles.img}>
-                            <img src={icon_nazgul} alt="icon-nazgul" />
+                            <img
+                                src={icon_nazgul}
+                                alt="icon-nazgul"
+                                loading="lazy"
+                            />
                         </div>
-                        <div className={styles["index-number"]}>
+                        <div className={styles["character-card__index-number"]}>
                             <span> {props.index} </span>
                         </div>
                     </div>
                     <p>{props.name}</p>
                 </div>
-                <div className={styles.picture}>
-                    <img src={checkGender()} alt="avatar" />
+                <div className={styles["character-card__image"]}>
+                    <img src={checkGender()} alt="avatar" loading="lazy" />
                 </div>
-                <div className={styles.race}>
-                    {" "}
-                    <img src={esmeralda} alt="esmeralta item" /> {props.race}{" "}
+                <div className={styles["character-card__race"]}>
+                    <img src={esmeralda} alt="esmeralta item" loading="lazy" />{" "}
+                    {props.race}
                 </div>
-                <div className={styles.info}>
+                <div className={styles["character-card__info-field"]}>
                     {props.gender !== "NaN" && props.gender !== "" && (
                         <p>Gender : {props.gender} </p>
                     )}
@@ -125,9 +129,11 @@ const CharacterItem = (props: CharacterInfo) => {
                         <p>Birth : {props.birth} </p>
                     )}
                     {props.death !== "NaN" && props.death !== "" && (
-                        <p className={styles.death}>Death : {props.death} </p>
+                        <p className={styles["character-card__death"]}>
+                            Death : {props.death}{" "}
+                        </p>
                     )}
-                    <p className={styles.link}>
+                    <p className={styles["character-card__link"]}>
                         <a
                             href={`${props.link}`}
                             target="_blank"
@@ -137,7 +143,7 @@ const CharacterItem = (props: CharacterInfo) => {
                         </a>
                     </p>
                 </div>
-                <p className={styles["elfic-font"]}>tt</p>
+                <p className={styles["character-card__elfic-font"]}>tt</p>
             </div>
         </li>
     );

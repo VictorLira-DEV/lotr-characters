@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/pages/Header/Header.module.css";
+import styles from "../styles/components/Header/Header.module.css";
 import ring_logo from "../assets/images/ring-logo.png";
 
 interface HeaderProps {
@@ -17,19 +17,20 @@ const Header = (props: HeaderProps) => {
     };
 
     return (
-        <header className={styles.header}>
-            <div className={styles.logo}>
+        <header className={styles["main-header"]}>
+            <div className={styles["main-header__logo"]}>
                 <img src={ring_logo} alt="card avatar" />
-                <h1> The lord of the Rings </h1>
+                <h1 className={styles["main-header__title"]}>
+                    The lord of the Rings{" "}
+                </h1>
             </div>
             <div>
                 <select
-                    className={styles["select-race"]}
+                    className={styles["main-header__select"]}
                     name="Select the Race"
                     onChange={raceSelected}
                 >
                     <option selected disabled>
-                        {" "}
                         Select by Race
                     </option>
                     <option value="All">All</option>
@@ -52,6 +53,7 @@ const Header = (props: HeaderProps) => {
                     type="search"
                     placeholder="Search by name"
                     onChange={filteringByName}
+                    className={styles["main-header__search"]}
                 />
             </div>
         </header>

@@ -3,7 +3,7 @@
   src: url("../../../font/lotr.TTF") format("truetype");
 }
 
-.header {
+.main-header {
   padding: 10px 30px;
   width: 100%;
   background-color: black;
@@ -20,7 +20,7 @@
   border-bottom: 1px solid #4e4a3b;
 }
 
-.header .logo {
+.main-header__logo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -29,30 +29,17 @@
           align-items: center;
 }
 
-.header .logo img {
+.main-header__logo img {
   width: 70px;
 }
 
-.header .logo h1 {
+.main-header__title {
   color: #baa86a;
   font-weight: 400;
   font-family: "lord-of-the-rings";
 }
 
-.header input {
-  border: 1px solid #baa86a;
-  background: black;
-  color: #f1e7cc;
-  font-size: 1rem;
-  width: 150px;
-  height: 40px;
-  font-size: 15px;
-  padding: 5px;
-  text-align: center;
-  border-radius: 4px;
-}
-
-.header .select-race {
+.main-header__select {
   margin-right: 10px;
   max-width: 200px;
   -webkit-appearance: none;
@@ -74,8 +61,21 @@
   border-radius: 4px;
 }
 
+.main-header__search {
+  border: 1px solid #baa86a;
+  background: black;
+  color: #f1e7cc;
+  font-size: 1rem;
+  width: 150px;
+  height: 40px;
+  font-size: 15px;
+  padding: 5px;
+  text-align: center;
+  border-radius: 4px;
+}
+
 @media screen and (max-width: 808px) {
-  .header {
+  .main-header {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -87,14 +87,14 @@
 }
 
 @media screen and (max-width: 745px) {
-  .header {
+  .main-header {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
     padding: 10px 10px;
   }
-  .header .logo {
+  .main-header__logo {
     margin-bottom: 10px;
     -webkit-box-pack: start;
         -ms-flex-pack: start;
@@ -103,7 +103,7 @@
 }
 
 @media screen and (max-width: 656px) {
-  .header {
+  .main-header {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -111,19 +111,19 @@
 }
 
 @media screen and (max-width: 500px) {
-  .header .logo img {
+  .main-header__logo img {
     width: 50px;
   }
 }
 
 @media screen and (max-width: 436px) {
-  .header .logo h1 {
+  .main-header__title {
     font-size: 22px;
   }
 }
 
 @media screen and (max-width: 400px) {
-  .header {
+  .main-header {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -131,13 +131,13 @@
 }
 
 @media screen and (max-width: 362px) {
-  .header {
+  .main-header {
     padding: 10px 20px;
   }
-  .header input {
+  .main-header__search {
     max-width: 150px;
   }
-  .header .select-race {
+  .main-header__select {
     max-width: 140px;
   }
 }

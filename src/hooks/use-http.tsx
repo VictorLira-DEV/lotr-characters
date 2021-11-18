@@ -21,12 +21,12 @@ const useHttp = () => {
             const trasformedData = data.docs;
             sendData(trasformedData);
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     };
 
     return {
-        sendRequest
+        sendRequest,
     };
 };
 

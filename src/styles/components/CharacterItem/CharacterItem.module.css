@@ -8,13 +8,13 @@
   src: url("../../../font/lotr.TTF") format("truetype");
 }
 
-.character-wrapper {
+.character-card {
   list-style: none;
   margin: 0 auto;
   position: relative;
 }
 
-.character-wrapper .points {
+.character-card__dots {
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -33,14 +33,14 @@
   top: 1px;
 }
 
-.character-wrapper .points div {
+.character-card__dots div {
   width: 3px;
   height: 3px;
   background-color: #baa86a;
   border-radius: 100%;
 }
 
-.character-wrapper .character-item {
+.character-card__content {
   width: 300px;
   min-height: 428px;
   border: 1px solid #baa86a;
@@ -62,7 +62,7 @@
   transition: 0.2s ease-in-out;
 }
 
-.character-wrapper .character-item .header {
+.character-card__header {
   padding: 0 10px;
   border: 1px solid #baa86a;
   display: -webkit-box;
@@ -78,27 +78,31 @@
   min-height: 60px;
 }
 
-.character-wrapper .character-item .header .index {
+.character-card__header img {
+  width: 50px;
+}
+
+.character-card__index-wrapper {
   min-width: 40px;
   height: 40px;
   margin-right: 10px;
   position: relative;
 }
 
-.character-wrapper .character-item .header .index .img {
+.character-card__index-wrapper .img {
   width: 100%;
   height: 100%;
   position: absolute;
 }
 
-.character-wrapper .character-item .header .index .img img {
+.character-card__index-wrapper .img img {
   width: 100%;
   height: 100%;
   border: 2px solid #baa86a;
   border-radius: 100%;
 }
 
-.character-wrapper .character-item .header .index .index-number {
+.character-card__index-number {
   position: absolute;
   right: 50%;
   top: 50%;
@@ -107,18 +111,14 @@
   font-size: 16px;
 }
 
-.character-wrapper .character-item .header img {
-  width: 50px;
-}
-
-.character-wrapper .character-item .picture {
+.character-card__image {
   width: 100%;
   margin-top: 5px;
   height: 200px;
   border: 1px solid #baa86a;
 }
 
-.character-wrapper .character-item .picture img {
+.character-card__image img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -127,7 +127,7 @@
      object-position: top;
 }
 
-.character-wrapper .character-item .race {
+.character-card__race {
   margin-top: 5px;
   border: 1px solid #baa86a;
   display: -webkit-box;
@@ -141,12 +141,12 @@
           justify-content: center;
 }
 
-.character-wrapper .character-item .race img {
+.character-card__race img {
   width: 20px;
   margin-right: 10px;
 }
 
-.character-wrapper .character-item .info {
+.character-card__info-field {
   font-size: 14px;
   width: 100%;
   margin-top: 5px;
@@ -157,11 +157,11 @@
   padding: 5px 0 0 10px;
 }
 
-.character-wrapper .character-item .info .death {
+.character-card__death {
   padding-bottom: 17px;
 }
 
-.character-wrapper .character-item .info .link {
+.character-card__link {
   margin-top: 10px;
   position: absolute;
   bottom: 0;
@@ -172,7 +172,7 @@
   text-align: center;
 }
 
-.character-wrapper .character-item .info .link a {
+.character-card__link a {
   font-family: "lotr";
   text-transform: lowercase;
   letter-spacing: 1px;
@@ -182,12 +182,12 @@
   color: #f1e7cc;
 }
 
-.character-wrapper .character-item .info .link a:hover {
+.character-card__link a:hover {
   text-decoration: underline;
   color: #72a4dc;
 }
 
-.character-wrapper .character-item .elfic-font {
+.character-card__elfic-font {
   font-family: "elfic";
   font-size: 35px;
   font-weight: 100;
@@ -197,7 +197,7 @@
 }
 
 @media screen and (max-width: 656px) {
-  .character-wrapper .character-item {
+  .character-card__content {
     margin: 0 0 20px 0;
   }
 }

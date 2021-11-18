@@ -4,7 +4,7 @@
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 ::-webkit-input-placeholder {
@@ -53,7 +53,7 @@
       flex-wrap: wrap;
 }
 
-.paginationBttns {
+.pagination__bttns {
   padding: 20px;
   list-style: none;
   display: -webkit-box;
@@ -70,7 +70,7 @@
           transform: translate(50%);
 }
 
-.paginationBttns a {
+.pagination__bttns a {
   padding: 10px;
   margin: 8px;
   border-radius: 5px;
@@ -81,12 +81,12 @@
   font-size: 14px;
 }
 
-.paginationBttns a:hover {
+.pagination__bttns a:hover {
   color: black;
   background: #baa86a;
 }
 
-.paginationActive a {
+.pagination--active a {
   font-weight: bolder;
   color: black;
   background: #baa86a;
@@ -97,7 +97,7 @@
 }
 
 @media screen and (max-width: 404px) {
-  .paginationBttns a {
+  .pagination-bttns a {
     margin: 4px;
   }
 }

@@ -8,7 +8,7 @@ import { URLcharacters, headers, URLcharactersRace } from "./services/api/lotr";
 import ICharacterInfo from "./interfaces/characterInfo";
 import IPaginationChange from "./interfaces/paginationChange";
 import ReactPaginate from "react-paginate";
-import Header from "./pages/Header";
+import Header from "./components/Header";
 import CharacterItem from "./components/CharacterItem";
 import Loading from "./components/Loading";
 import useHttp from "./hooks/use-http";
@@ -22,14 +22,14 @@ function App() {
     const [pageNumber, setPageNumber] = useState<number>(0);
     const [filterByName, setFilterByName] = useState<string>("");
     const [isLoading, setIsLoading] = useState(false);
-    const usersPerPage = 12;
-    const pagesVisited = pageNumber * usersPerPage;
+    const itemsPerPage = 12;
+    const pagesVisited = pageNumber * itemsPerPage;
 
     const { sendRequest: initialGetRequest } = useHttp();
     const { sendRequest: selectByRaceGetRequest } = useHttp();
 
     const displayCharacters = characters
-        .slice(pagesVisited, pagesVisited + usersPerPage)
+        .slice(pagesVisited, pagesVisited + itemsPerPage)
         .map((charactersItem, index) => {
             return (
                 <CharacterItem
@@ -45,7 +45,7 @@ function App() {
             );
         });
 
-    let pageCount = Math.ceil(characters.length / usersPerPage);
+    let pageCount = Math.ceil(characters.length / itemsPerPage);
 
     const changePage = ({ selected }: IPaginationChange) => {
         setPageNumber(selected);
@@ -121,10 +121,10 @@ function App() {
                 <ul className="character-list">{displayCharacters}</ul>
             )}
             {isLoading && <Loading />}
-            {characters.length === 0 && filterByName !== "" && (
+            {!isLoading && characters.length === 0 && filterByName !== "" && (
                 <h1 className="warning-text"> No character was found</h1>
             )}
-            {filterByName !== "" && (
+            {!isLoading && filterByName !== "" && (
                 <ul className="character-list">{displayCharacters}</ul>
             )}
 
@@ -137,11 +137,11 @@ function App() {
                         onPageChange={changePage}
                         pageRangeDisplayed={1}
                         marginPagesDisplayed={1}
-                        containerClassName={"paginationBttns"}
+                        containerClassName={"pagination__bttns"}
                         previousLinkClassName={"previousBttn"}
                         nextLinkClassName={"nextBttn"}
                         disabledClassName={"paginationDisabled"}
-                        activeClassName={"paginationActive"}
+                        activeClassName={"pagination--active"}
 
                     />
             )}

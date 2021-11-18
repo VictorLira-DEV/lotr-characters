@@ -1,16 +1,16 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
-@import '../variables';
+@import "../variables";
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
-::placeholder { 
-  color: rgba($color: #f1e7cc, $alpha: 0.8);
-  opacity: 1;
+::placeholder {
+    color: rgba($color: #f1e7cc, $alpha: 0.8);
+    opacity: 1;
 }
 
 .App {
@@ -22,66 +22,59 @@
     min-height: 100vh;
     position: relative;
     overflow: hidden;
-    .warning-text{
-      margin-top: 50px;
-      font-size: 24px;
-      color: $color-dark-golden;
+    .warning-text {
+        margin-top: 50px;
+        font-size: 24px;
+        color: $color-dark-golden;
     }
 }
 
-
-
-.character-list{
-  padding: 50px 30px 100px 30px;
-  display: flex;
-  flex-wrap: wrap;
+.character-list {
+    padding: 50px 30px 100px 30px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.paginationBttns{
-  padding: 20px;
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  position: absolute;
-  bottom: 0;
-  right: 50%;
-  transform: translate(50%);
-  
-  a {
-    padding: 10px;
-    margin: 8px;
-    border-radius: 5px;
-    border: 1px solid $color-dark-golden;
-    color: $color-light-golden;
-    cursor: pointer;
-    background: $color-black; 
-    font-size: 14px;
+.pagination__bttns {
+    padding: 20px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translate(50%);
 
-    &:hover{
-      color: $color-black;
-      background: $color-dark-golden;
+    a {
+        padding: 10px;
+        margin: 8px;
+        border-radius: 5px;
+        border: 1px solid $color-dark-golden;
+        color: $color-light-golden;
+        cursor: pointer;
+        background: $color-black;
+        font-size: 14px;
+
+        &:hover {
+            color: $color-black;
+            background: $color-dark-golden;
+        }
     }
-  }
-
 }
 
-.paginationActive a {
-  font-weight: bolder;
-  color: $color-black;
-  background: $color-dark-golden;
+.pagination--active a {
+    font-weight: bolder;
+    color: $color-black;
+    background: $color-dark-golden;
 }
 
-.hide{
-  display: none;
+.hide {
+    display: none;
 }
 
-
-@media screen and (max-width: 404px){
-  .paginationBttns a{
-    margin: 4px;
-  }
+@media screen and (max-width: 404px) {
+    .pagination-bttns a {
+        margin: 4px;
+    }
 }
-
-
-

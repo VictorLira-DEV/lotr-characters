@@ -15,7 +15,6 @@ export const capitalizeName = (inputLetter: string) => {
     return inputCapitelized;
 };
 
-
 export const removeIncorrectData = (data: CharacterInfo[]) => {
     const newData: CharacterInfo[] = [];
     data.forEach((character: CharacterInfo) => {

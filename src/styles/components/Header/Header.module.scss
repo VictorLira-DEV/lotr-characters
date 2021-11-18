@@ -4,7 +4,7 @@
     src: url("../../../font/lotr.TTF") format("truetype");
 }
 
-.header {
+.main-header {
     padding: 10px 30px;
     width: 100%;
     background-color: $color-black;
@@ -13,34 +13,21 @@
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #4e4a3b;
-    .logo {
+    &__logo {
         display: flex;
         align-items: center;
         img {
             width: 70px;
         }
-
-        h1 {
-            color: $color-dark-golden;
-            font-weight: 400;
-            font-family: "lord-of-the-rings";
-        }
     }
 
-    input {
-        border: 1px solid $color-dark-golden;
-        background: $color-black;
-        color: $color-light-golden;
-        font-size: 1rem;
-        width: 150px;
-        height: 40px;
-        font-size: 15px;
-        padding: 5px;
-        text-align: center;
-        border-radius: 4px;
+    &__title {
+        color: $color-dark-golden;
+        font-weight: 400;
+        font-family: "lord-of-the-rings";
     }
 
-    .select-race {
+    &__select {
         margin-right: 10px;
         max-width: 200px;
         appearance: none;
@@ -56,20 +43,33 @@
         height: 40px;
         border-radius: 4px;
     }
+
+    &__search {
+        border: 1px solid $color-dark-golden;
+        background: $color-black;
+        color: $color-light-golden;
+        font-size: 1rem;
+        width: 150px;
+        height: 40px;
+        font-size: 15px;
+        padding: 5px;
+        text-align: center;
+        border-radius: 4px;
+    }
 }
 
 @media screen and (max-width: 808px) {
-    .header {
+    .main-header {
         flex-direction: column;
         align-items: flex-start;
     }
 }
 
 @media screen and (max-width: 745px) {
-    .header {
+    .main-header {
         flex-direction: column;
         padding: 10px 10px;
-        .logo {
+        &__logo {
             margin-bottom: 10px;
             justify-content: flex-start;
         }
@@ -77,14 +77,14 @@
 }
 
 @media screen and (max-width: 656px) {
-    .header {
+    .main-header {
         justify-content: center;
     }
 }
 
 @media screen and (max-width: 500px) {
-    .header {
-        .logo {
+    .main-header {
+        &__logo {
             img {
                 width: 50px;
             }
@@ -93,29 +93,27 @@
 }
 
 @media screen and (max-width: 436px) {
-    .header {
-        .logo {
-            h1 {
-                font-size: 22px;
-            }
+    .main-header {
+        &__title {
+            font-size: 22px;
         }
     }
 }
 
 @media screen and (max-width: 400px) {
-    .header {
+    .main-header {
         align-items: center;
     }
 }
 
 @media screen and (max-width: 362px) {
-    .header {
+    .main-header {
         padding: 10px 20px;
-        input {
+        &__search {
             max-width: 150px;
         }
 
-        .select-race {
+        &__select {
             max-width: 140px;
         }
     }
