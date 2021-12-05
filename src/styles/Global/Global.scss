@@ -31,8 +31,9 @@
 
 .character-list {
     padding: 50px 30px 100px 30px;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-gap: 0 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .pagination__bttns {
