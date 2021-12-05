@@ -115,7 +115,7 @@ const CharacterItem = (props: CharacterInfo) => {
                     <p>{props.name}</p>
                 </div>
                 <div className={styles["character-card__image"]}>
-                    <img src={checkGender()} alt="avatar" loading="lazy" />
+                    <img className={styles["character-card__avatar"]} src={checkGender()} alt="avatar" loading="lazy" />
                 </div>
                 <div className={styles["character-card__race"]}>
                     <img src={esmeralda} alt="esmeralta item" loading="lazy" />{" "}
