@@ -1,187 +1,170 @@
 @import "../../variables";
 
 @font-face {
-    font-family: "elfic";
-    src: url("../../../font/TheOneRing.ttf") format("truetype");
+	font-family: "elfic";
+	src: url("../../../font/TheOneRing.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: "lotr";
-    src: url("../../../font/lotr.TTF") format("truetype");
+	font-family: "lotr";
+	src: url("../../../font/lotr.TTF") format("truetype");
 }
 
-//skeleton
-.skeleton {
-    opacity: .7;
-    animation: skeleton-loading 1s linear infinite alternate;
-  }
-
-  @keyframes skeleton-loading {
-    0% {
-      background-color: hsl(200, 20%, 70%);
-    }
-  
-    100% {
-      background-color: hsl(200, 20%, 95%);
-    }
-  }
-
-  //--------------
-
 .character-card {
-    list-style: none;
-    margin: 0 auto;
-    position: relative;
-    &__dots {
-        position: absolute;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 30px;
-        margin: 0 auto;
-        right: 50%;
-        transform: translate(50%);
-        top: 1px;
-        div {
-            width: 3px;
-            height: 3px;
-            background-color: $color-dark-golden;
-            border-radius: 100%;
-        }
-    }
+	list-style: none;
+	margin: 0 auto;
+	position: relative;
+	&__dots {
+		position: absolute;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 30px;
+		margin: 0 auto;
+		right: 50%;
+		transform: translate(50%);
+		top: 1px;
+		div {
+			width: 3px;
+			height: 3px;
+			background-color: $color-dark-golden;
+			border-radius: 100%;
+		}
+	}
 
-    &__content {
-        width: 300px;
-        min-height: 428px;
-        border: 1px solid $color-dark-golden;
-        border-radius: 6px;
-        display: flex;
-        flex-direction: column;
-        padding: 5px;
-        background: #0a0a0a;
-        color: $color-light-golden;
-        margin: 0px 20px 20px 20px;
-        position: relative;
-        padding-bottom: 20px;
-        transition: 0.2s ease-in-out;
-    }
+	&__content {
+		width: 300px;
+		min-height: 428px;
+		border: 1px solid $color-dark-golden;
+		border-radius: 6px;
+		display: flex;
+		flex-direction: column;
+		padding: 5px;
+		background: #0a0a0a;
+		color: $color-light-golden;
+		margin: 0px 20px 20px 20px;
+		position: relative;
+		padding-bottom: 20px;
+		transition: 0.2s ease-in-out;
+	}
 
-    &__header {
-        padding: 0 10px;
-        border: 1px solid $color-dark-golden;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 16px;
-        min-height: 60px;
+	&__header {
+		padding: 0 10px;
+		border: 1px solid $color-dark-golden;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		font-size: 16px;
+		min-height: 60px;
 
-        img {
-            width: 50px;
-        }
-    }
+		img {
+			width: 50px;
+		}
+	}
 
-    &__index-wrapper {
-        min-width: 40px;
-        height: 40px;
-        margin-right: 10px;
-        position: relative;
-        .img {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            img {
-                width: 100%;
-                height: 100%;
-                border: 2px solid $color-dark-golden;
-                border-radius: 100%;
-            }
-        }
-    }
-    &__index-number {
-        position: absolute;
-        right: 50%;
-        top: 50%;
-        transform: translate(50%, -50%);
-        font-size: 16px;
-    }
+	&__index-wrapper {
+		min-width: 40px;
+		height: 40px;
+		margin-right: 10px;
+		position: relative;
+		.img {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			img {
+				width: 100%;
+				height: 100%;
+				border: 2px solid $color-dark-golden;
+				border-radius: 100%;
+			}
+		}
+	}
+	&__index-number {
+		position: absolute;
+		right: 50%;
+		top: 50%;
+		transform: translate(50%, -50%);
+		font-size: 16px;
+	}
 
-    &__image {
-        width: 100%;
-        margin-top: 5px;
-        height: 200px;
-        border: 1px solid $color-dark-golden;
-    }
+	&__image {
+		width: 100%;
+		margin-top: 5px;
+		height: 200px;
+		border: 1px solid $color-dark-golden;
+		overflow: hidden;
+	}
 
-    &__avatar{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top;
-    }
+	&__avatar {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: top;
+	}
 
-    &__race {
-        margin-top: 5px;
-        border: 1px solid $color-dark-golden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        img {
-            width: 20px;
-            margin-right: 10px;
-        }
-    }
+	&__race {
+		margin-top: 5px;
+		border: 1px solid $color-dark-golden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		img {
+			width: 20px;
+			margin-right: 10px;
+		}
+	}
 
-    &__info-field {
-        font-size: 14px;
-        width: 100%;
-        margin-top: 5px;
-        min-height: 110px;
-        border: 1px solid $color-dark-golden;
-        text-align: start;
-        position: relative;
-        padding: 5px 0 0 10px;
-    }
+	&__info-field {
+		font-size: 14px;
+		width: 100%;
+		margin-top: 5px;
+		min-height: 110px;
+		border: 1px solid $color-dark-golden;
+		text-align: start;
+		position: relative;
+		padding: 5px 0 0 10px;
+	}
 
-    &__death {
-        padding-bottom: 17px;
-    }
+	&__death {
+		padding-bottom: 17px;
+	}
 
-    &__link {
-        margin-top: 10px;
-        position: absolute;
-        bottom: 0;
-        right: 50%;
-        transform: translate(50%);
-        width: 100%;
-        text-align: center;
-        a {
-            font-family: "lotr";
-            text-transform: lowercase;
-            letter-spacing: 1px;
-            font-weight: 100;
-            font-size: 13px;
-            text-decoration: none;
-            color: $color-light-golden;
-            &:hover {
-                text-decoration: underline;
-                color: rgb(114, 164, 220);
-            }
-        }
-    }
-    &__elfic-font {
-        font-family: "elfic";
-        font-size: 35px;
-        font-weight: 100;
-        position: absolute;
-        bottom: -9px;
-        right: 5px;
-    }
+	&__link {
+		margin-top: 10px;
+		position: absolute;
+		bottom: 0;
+		right: 50%;
+		transform: translate(50%);
+		width: 100%;
+		text-align: center;
+		a {
+			font-family: "lotr";
+			text-transform: lowercase;
+			letter-spacing: 1px;
+			font-weight: 100;
+			font-size: 13px;
+			text-decoration: none;
+			color: $color-light-golden;
+			&:hover {
+				text-decoration: underline;
+				color: rgb(114, 164, 220);
+			}
+		}
+	}
+	&__elfic-font {
+		font-family: "elfic";
+		font-size: 35px;
+		font-weight: 100;
+		position: absolute;
+		bottom: -9px;
+		right: 5px;
+	}
 }
 
 @media screen and (max-width: 656px) {
-    .character-card {
-        &__content {
-            margin: 0 0 20px 0;
-        }
-    }
+	.character-card {
+		&__content {
+			margin: 0 0 20px 0;
+		}
+	}
 }

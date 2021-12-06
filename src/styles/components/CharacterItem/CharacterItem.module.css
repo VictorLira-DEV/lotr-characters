@@ -8,30 +8,6 @@
   src: url("../../../font/lotr.TTF") format("truetype");
 }
 
-.skeleton {
-  opacity: .7;
-  -webkit-animation: skeleton-loading 1s linear infinite alternate;
-          animation: skeleton-loading 1s linear infinite alternate;
-}
-
-@-webkit-keyframes skeleton-loading {
-  0% {
-    background-color: #a3b8c2;
-  }
-  100% {
-    background-color: #f0f3f5;
-  }
-}
-
-@keyframes skeleton-loading {
-  0% {
-    background-color: #a3b8c2;
-  }
-  100% {
-    background-color: #f0f3f5;
-  }
-}
-
 .character-card {
   list-style: none;
   margin: 0 auto;
@@ -140,6 +116,7 @@
   margin-top: 5px;
   height: 200px;
   border: 1px solid #baa86a;
+  overflow: hidden;
 }
 
 .character-card__avatar {

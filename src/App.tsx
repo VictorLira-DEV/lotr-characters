@@ -52,7 +52,8 @@ function App() {
 	useEffect(() => {
 		const send = (data: ICharacterInfo[]) => {
 			const listOfCharacters = data;
-			const transformedData = helper.removeIncorrectData(listOfCharacters);
+			const transformedData =
+				helper.removeIncorrectData(listOfCharacters);
 			setCharacters(transformedData);
 			setMainListOfCharacters(transformedData);
 			setIsLoading(false);
@@ -73,7 +74,8 @@ function App() {
 
 		const send = (data: ICharacterInfo[]) => {
 			const listOfCharacters = data;
-			const transformedData = helper.removeIncorrectData(listOfCharacters);
+			const transformedData =
+				helper.removeIncorrectData(listOfCharacters);
 			setCharacters(transformedData);
 			setPageNumber(0);
 			setCharacters(transformedData);

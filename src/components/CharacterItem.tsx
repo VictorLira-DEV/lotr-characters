@@ -18,135 +18,145 @@ import men from "../assets/images/men.gif";
 import orc from "../assets/images/orc-male.gif";
 import orcs from "../assets/images/orcs.gif";
 import ring_default_img from "../assets/images/ring.png";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 interface CharacterInfo {
-    name: string;
-    index: number;
-    race: string;
-    gender: string;
-    link: string;
-    birth: string;
-    death: string;
-    key: string;
+	name: string;
+	index: number;
+	race: string;
+	gender: string;
+	link: string;
+	birth: string;
+	death: string;
+	key: string;
 }
 
 const CharacterItem = (props: CharacterInfo) => {
-    const checkGender = () => {
-        switch (true) {
-            //Human
-            case props.race === "Human" && props.gender === "Male":
-                return man;
-            case props.race === "Human" && props.gender === "male":
-                return man;
-            case props.race === "Human" && props.gender === "Female":
-                return female;
-            case props.race === "Human" && props.gender === "Males":
-                return men;
-            case props.race === "Men":
-                return men;
-            //elves
-            case props.race === "Elf" && props.gender === "Male":
-                return elf_male;
-            case props.race === "Elf" && props.gender === "Female":
-                return elf_female;
-            case props.race === "Elf":
-                return elf_male;
-            case props.race === "Elves":
-                return elves;
-            //hobbits
-            case props.race === "Hobbit" && props.gender === "Male":
-                return hobbit_male;
-            case props.race === "Hobbit" && props.gender === "male":
-                return hobbit_male;
-            case props.race === "Hobbit" && props.gender === "Female":
-                return hobbit_female;
-            case props.race === "Hobbit":
-                return hobbit_male;
-            case props.race === "Hobbits":
-                return hobbit_male;
-            //dwarfs
-            case props.race === "Dwarf":
-                return dwarf_male;
-            case props.race === "Dwarves":
-                return dwarves;
-            //orcs
-            case props.race === "Orc":
-                return orc;
-            case props.race === "Orcs":
-                return orcs;
-            //Ent
-            case props.race === "Ent" || props.race === "Ents":
-                return ent;
-            //Maiar
-            case props.race === "Maiar":
-                return maiar;
-            //Ainur
-            case props.race === "Ainur":
-                return ainur_img;
-            //Dragons
-            case props.race === "Dragons" || props.race === "Dragon":
-                return dragons;
-            default:
-                return ring_default_img;
-        }
-    };
+	const checkGender = () => {
+		switch (true) {
+			//Human
+			case props.race === "Human" && props.gender === "Male":
+				return man;
+			case props.race === "Human" && props.gender === "male":
+				return man;
+			case props.race === "Human" && props.gender === "Female":
+				return female;
+			case props.race === "Human" && props.gender === "Males":
+				return men;
+			case props.race === "Men":
+				return men;
+			//elves
+			case props.race === "Elf" && props.gender === "Male":
+				return elf_male;
+			case props.race === "Elf" && props.gender === "Female":
+				return elf_female;
+			case props.race === "Elf":
+				return elf_male;
+			case props.race === "Elves":
+				return elves;
+			//hobbits
+			case props.race === "Hobbit" && props.gender === "Male":
+				return hobbit_male;
+			case props.race === "Hobbit" && props.gender === "male":
+				return hobbit_male;
+			case props.race === "Hobbit" && props.gender === "Female":
+				return hobbit_female;
+			case props.race === "Hobbit":
+				return hobbit_male;
+			case props.race === "Hobbits":
+				return hobbit_male;
+			//dwarfs
+			case props.race === "Dwarf":
+				return dwarf_male;
+			case props.race === "Dwarves":
+				return dwarves;
+			//orcs
+			case props.race === "Orc":
+				return orc;
+			case props.race === "Orcs":
+				return orcs;
+			//Ent
+			case props.race === "Ent" || props.race === "Ents":
+				return ent;
+			//Maiar
+			case props.race === "Maiar":
+				return maiar;
+			//Ainur
+			case props.race === "Ainur":
+				return ainur_img;
+			//Dragons
+			case props.race === "Dragons" || props.race === "Dragon":
+				return dragons;
+			default:
+				return ring_default_img;
+		}
+	};
 
-    return (
-        <li id={props.key} className={styles["character-card"]}>
-            <div className={styles["character-card__content"]}>
-                <div className={styles["character-card__dots"]}>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-                <div className={styles["character-card__header"]}>
-                    <div className={styles["character-card__index-wrapper"]}>
-                        <div className={styles.img}>
-                            <img
-                                src={icon_nazgul}
-                                alt="icon-nazgul"
-                                loading="lazy"
-                            />
-                        </div>
-                        <div className={styles["character-card__index-number"]}>
-                            <span> {props.index} </span>
-                        </div>
-                    </div>
-                    <p>{props.name}</p>
-                </div>
-                <div className={styles["character-card__image"]}>
-                    <img className={styles["character-card__avatar"]} src={checkGender()} alt="avatar" loading="lazy" />
-                </div>
-                <div className={styles["character-card__race"]}>
-                    <img src={esmeralda} alt="esmeralta item" loading="lazy" />{" "}
-                    {props.race}
-                </div>
-                <div className={styles["character-card__info-field"]}>
-                    {props.gender !== "NaN" && props.gender !== "" && (
-                        <p>Gender : {props.gender} </p>
-                    )}
-                    {props.birth !== "NaN" && props.birth !== "" && (
-                        <p>Birth : {props.birth} </p>
-                    )}
-                    {props.death !== "NaN" && props.death !== "" && (
-                        <p className={styles["character-card__death"]}>
-                            Death : {props.death}{" "}
-                        </p>
-                    )}
-                    <p className={styles["character-card__link"]}>
-                        <a
-                            href={`${props.link}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            More About This Character{" "}
-                        </a>
-                    </p>
-                </div>
-                <p className={styles["character-card__elfic-font"]}>tt</p>
-            </div>
-        </li>
-    );
+	return (
+		<li id={props.key} className={styles["character-card"]}>
+			<div className={styles["character-card__content"]}>
+				<div className={styles["character-card__dots"]}>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+				<div className={styles["character-card__header"]}>
+					<div className={styles["character-card__index-wrapper"]}>
+						<div className={styles.img}>
+							<img
+								src={icon_nazgul}
+								alt="icon-nazgul"
+								loading="lazy"
+							/>
+						</div>
+						<div className={styles["character-card__index-number"]}>
+							<span> {props.index} </span>
+						</div>
+					</div>
+					<p>{props.name}</p>
+				</div>
+				<div className={styles["character-card__image"]}>
+					<LazyLoadImage
+						className={styles[`character-card__avatar`]}
+						src={checkGender()}
+						alt="avatar"
+						effect="blur"
+						height="200px"
+						width="288px"
+						placeholderSrc={process.env.PUBLIC_URL + "./ring.png"}
+					/>
+				</div>
+				<div className={styles["character-card__race"]}>
+					<img src={esmeralda} alt="esmeralta item" loading="lazy" />{" "}
+					{props.race}
+				</div>
+				<div className={styles["character-card__info-field"]}>
+					{props.gender !== "NaN" && props.gender !== "" && (
+						<p>Gender : {props.gender} </p>
+					)}
+					{props.birth !== "NaN" && props.birth !== "" && (
+						<p>Birth : {props.birth} </p>
+					)}
+					{props.death !== "NaN" && props.death !== "" && (
+						<p className={styles["character-card__death"]}>
+							Death : {props.death}{" "}
+						</p>
+					)}
+					<p className={styles["character-card__link"]}>
+						<a
+							href={`${props.link}`}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							More About This Character{" "}
+						</a>
+					</p>
+				</div>
+				<p className={styles["character-card__elfic-font"]}>tt</p>
+			</div>
+		</li>
+	);
 };
 
 export default CharacterItem;
