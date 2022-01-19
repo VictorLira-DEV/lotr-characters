@@ -20,6 +20,9 @@ import orcs from "../assets/images/orcs.gif";
 import ring_default_img from "../assets/images/ring.png";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import React, { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 interface CharacterInfo {
 	name: string;
@@ -33,6 +36,9 @@ interface CharacterInfo {
 }
 
 const CharacterItem = (props: CharacterInfo) => {
+	useEffect(() => {
+		Aos.init();
+	}, []);
 	const checkGender = () => {
 		switch (true) {
 			//Human
@@ -94,7 +100,14 @@ const CharacterItem = (props: CharacterInfo) => {
 	};
 
 	return (
-		<li id={props.key} className={styles["character-card"]}>
+		<li
+			id={props.key}
+			className={styles["character-card"]}
+			data-aos="fade-down"
+			data-aos-offset="100"
+			data-aos-easing="ease-in-sine"
+			data-aos-duration="800"
+		>
 			<div className={styles["character-card__content"]}>
 				<div className={styles["character-card__dots"]}>
 					<div></div>
