@@ -1,5 +1,5 @@
 
-## **<h2 align="center">React Application 💻</h2>**
+## **<h2 align="center">The lord of the rings Characters 💻</h2>**
 
 <h2 align="center"> 
         😎 Personal Project ✔️
@@ -14,10 +14,10 @@
 
 # :computer: Demonstration of the application
 
-<!-- <p align="center">
-  <img src="https://ik.imagekit.io/mcvhbcq4zu/tg_qhcI6B12E.gif?updatedAt=1629833182293" width="1400px"/>
+<p align="center">
+  <img src="https://ik.imagekit.io/mcvhbcq4zu/web_ddxssmG9S.gif?ik-sdk-version=javascript-1.4.3&updatedAt=1648476708524" width="1400px"/>
 </p>
- -->
+
 <br>
 
 <h3 align="center"> 
@@ -27,12 +27,13 @@
 
 
 ## About
-This project consumes this awesome rest  <a href="https://github.com/gitfrosh/lotr-api"> API </a>, which holds the code base of the API to rule them all, the Lord of the Rings API, which provides you with book, character, movie, and quotes data. But I'm using the list of characters for this project! you will learn more about each character individually! : )
+This project consumes this awesome rest  <a href="https://github.com/gitfrosh/lotr-api"> API </a>, which holds the code base of the API to rule them all, the Lord of the Rings API, which provides you with books, characters, movies, and quotes data. But I'm using the list of characters for this project! you will learn more about each character individually! : )
 
 ## :star: Features
 - [x] Search bar
 - [x] Select Race
 - [x] List of Characters
+- [x] Pagination 
 
 
 ## :rocket: Technologies used:
