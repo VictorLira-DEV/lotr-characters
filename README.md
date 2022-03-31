@@ -1,5 +1,5 @@
 
-## **<h2 align="center"> 💍 The lord of the rings Characters 💻</h2>**
+## **<h2 align="center"> The lord of the rings Characters 💻</h2>**
 
 <h2 align="center"> 
         😎 Personal Project ✔️
